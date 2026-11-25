@@ -14,7 +14,7 @@ services:
       APP_URL: ${DOCKER_APP_URL:-http://localhost:8080}
       DB_HOST: db
       DB_PORT: 3306
-      DB_NAME: ${DB_NAME:-cozycafe}
+      DB_NAME: cozycafe
       DB_USER: ${MYSQL_APP_USER:-cozycafe_app}
       DB_PASS: ${MYSQL_APP_PASSWORD:-cozycafe_app_local_password}
       SMTP_HOST: ${SMTP_HOST:-smtp.gmail.com}
@@ -33,7 +33,7 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-cozycafe_root_local_password}
-      MYSQL_DATABASE: ${DB_NAME:-cozycafe}
+      MYSQL_DATABASE: cozycafe
       MYSQL_USER: ${MYSQL_APP_USER:-cozycafe_app}
       MYSQL_PASSWORD: ${MYSQL_APP_PASSWORD:-cozycafe_app_local_password}
       TZ: Asia/Jakarta
