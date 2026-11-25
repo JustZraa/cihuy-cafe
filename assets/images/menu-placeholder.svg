@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title description">
+  <title id="title">CozyCafe menu</title>
+  <desc id="description">Warm cream illustration placeholder for a CozyCafe menu item.</desc>
+  <rect width="800" height="600" fill="#F5EFE6"/>
+  <circle cx="400" cy="300" r="190" fill="#D9C5B2"/>
+  <path d="M280 250h220v115a75 75 0 0 1-75 75h-70a75 75 0 0 1-75-75z" fill="#FAF8F5" stroke="#5C3A21" stroke-width="16"/>
+  <path d="M500 275h40a55 55 0 0 1 0 110h-45" fill="none" stroke="#5C3A21" stroke-width="16"/>
+  <path d="M330 205c-20-30 20-40 0-70m75 70c-20-30 20-40 0-70m75 70c-20-30 20-40 0-70" fill="none" stroke="#C8A98E" stroke-linecap="round" stroke-width="14"/>
+  <text x="400" y="500" fill="#5C3A21" font-family="Arial,sans-serif" font-size="32" font-weight="700" text-anchor="middle">CozyCafe</text>
+</svg>

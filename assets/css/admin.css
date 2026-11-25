@@ -1,0 +1,338 @@
+.admin-body {
+    min-height: 100vh;
+    background: #f7f3ed;
+}
+
+.admin-shell {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.admin-sidebar {
+    padding: 1rem;
+    background: var(--color-primary-dark);
+    color: #fff;
+}
+
+.admin-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.admin-brand small {
+    display: block;
+    color: var(--color-accent);
+    font-size: 0.7rem;
+    font-weight: 400;
+}
+
+.admin-nav summary {
+    padding: 0.65rem 0.75rem;
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.admin-nav nav {
+    display: grid;
+    gap: 0.2rem;
+    padding-top: 0.4rem;
+}
+
+.admin-nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    min-height: 2.65rem;
+    padding: 0.55rem 0.75rem;
+    border-radius: 0.7rem;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+}
+
+.admin-nav-link:hover,
+.admin-nav-link:focus-visible,
+.admin-nav-link.is-active {
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+}
+
+.admin-nav-link.is-active {
+    box-shadow: inset 3px 0 var(--color-accent);
+}
+
+.admin-nav-link.is-disabled {
+    color: rgba(255, 255, 255, 0.55);
+    cursor: not-allowed;
+}
+
+.admin-nav-link small {
+    color: var(--color-accent);
+    font-size: 0.7rem;
+}
+
+.admin-content {
+    min-width: 0;
+}
+
+.admin-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.8rem clamp(1rem, 3vw, 2rem);
+    border-bottom: 1px solid var(--color-secondary);
+    background: #fff;
+}
+
+.admin-topbar__greeting {
+    display: block;
+    color: #70635a;
+    font-size: 0.78rem;
+}
+
+.btn-outline-cozy {
+    border: 1px solid var(--color-primary);
+    border-radius: 10px;
+    color: var(--color-primary);
+}
+
+.btn-outline-cozy:hover,
+.btn-outline-cozy:focus-visible {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.admin-main {
+    width: min(100%, 1600px);
+    margin-inline: auto;
+    padding: clamp(1rem, 3vw, 2rem);
+}
+
+.admin-page-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin-page-heading h1 {
+    color: var(--color-primary-dark);
+}
+
+.admin-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+    gap: 1rem;
+}
+
+.admin-kpi {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    background: #fff;
+}
+
+.admin-kpi span {
+    color: #6e6055;
+    font-size: 0.9rem;
+}
+
+.admin-kpi strong {
+    color: var(--color-primary);
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    overflow-wrap: anywhere;
+}
+
+.admin-panel {
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+    background: #fff;
+}
+
+.admin-panel h2 {
+    color: var(--color-primary-dark);
+}
+
+.admin-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.admin-chart-wrap {
+    position: relative;
+    min-height: 260px;
+}
+
+.admin-compact-list,
+.admin-best-sellers,
+.admin-timeline {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.admin-compact-list li,
+.admin-best-sellers li {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid #eee8e1;
+}
+
+.admin-compact-list li:last-child,
+.admin-best-sellers li:last-child {
+    border-bottom: 0;
+}
+
+.admin-compact-list small {
+    display: block;
+    margin-top: 0.2rem;
+    color: #76695f;
+}
+
+.admin-prep-note {
+    color: var(--color-primary) !important;
+    font-weight: 700;
+}
+
+.admin-best-sellers {
+    counter-reset: best-seller;
+}
+
+.admin-best-sellers li {
+    counter-increment: best-seller;
+}
+
+.admin-best-sellers li::before {
+    content: counter(best-seller);
+    display: grid;
+    width: 1.8rem;
+    height: 1.8rem;
+    flex: 0 0 auto;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.admin-best-sellers li span {
+    flex: 1;
+}
+
+.admin-timeline {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.admin-timeline li {
+    display: grid;
+    gap: 0.2rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--color-accent);
+}
+
+.admin-timeline span,
+.admin-timeline small {
+    color: #76695f;
+}
+
+.admin-cancel-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    min-width: min(100%, 300px);
+}
+
+.admin-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem clamp(1rem, 3vw, 2rem);
+    border-top: 1px solid var(--color-secondary);
+    color: #76695f;
+    font-size: 0.8rem;
+}
+
+.admin-main .table {
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+.admin-main .table th {
+    white-space: nowrap;
+}
+
+.admin-report-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.admin-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    color: #76695f;
+}
+
+.admin-notification-button {
+    border-color: var(--color-accent);
+    background: var(--color-primary-dark);
+}
+
+.notification-dropdown--admin {
+    right: 0;
+}
+
+.notification-control .notification-entry__read {
+    padding: 0.2rem;
+}
+
+@media (min-width: 1100px) {
+    .admin-shell {
+        grid-template-columns: 250px minmax(0, 1fr);
+    }
+
+    .admin-sidebar {
+        min-height: 100vh;
+        padding: 1.35rem 1rem;
+    }
+
+    .admin-nav summary {
+        list-style: none;
+    }
+
+    .admin-nav summary::-webkit-details-marker {
+        display: none;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .admin-topbar {
+        align-items: flex-start;
+    }
+
+    .admin-footer {
+        flex-direction: column;
+    }
+}

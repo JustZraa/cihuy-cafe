@@ -1,0 +1,54 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    environment:
+      APP_ENV: ${APP_ENV:-local}
+      APP_URL: ${DOCKER_APP_URL:-http://localhost:8080}
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: ${DB_NAME:-cozycafe}
+      DB_USER: ${MYSQL_APP_USER:-cozycafe_app}
+      DB_PASS: ${MYSQL_APP_PASSWORD:-cozycafe_app_local_password}
+      SMTP_HOST: ${SMTP_HOST:-smtp.gmail.com}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SMTP_FROM_NAME: ${SMTP_FROM_NAME:-CozyCafe}
+      CRON_SECRET: ${CRON_SECRET:-}
+      TZ: Asia/Jakarta
+    volumes:
+      - uploads_data:/var/www/html/uploads
+      - backups_data:/var/www/html/database/backups
+
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-cozycafe_root_local_password}
+      MYSQL_DATABASE: ${DB_NAME:-cozycafe}
+      MYSQL_USER: ${MYSQL_APP_USER:-cozycafe_app}
+      MYSQL_PASSWORD: ${MYSQL_APP_PASSWORD:-cozycafe_app_local_password}
+      TZ: Asia/Jakarta
+    command: --default-time-zone=+07:00 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/cozycafe.sql:/docker-entrypoint-initdb.d/001-cozycafe.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p$${MYSQL_ROOT_PASSWORD} --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+
+volumes:
+  mysql_data:
+  uploads_data:
+  backups_data:

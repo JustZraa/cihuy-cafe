@@ -1,0 +1,24 @@
+Options -Indexes
+
+ErrorDocument 403 /cozycafe/403.php
+ErrorDocument 404 /cozycafe/404.php
+ErrorDocument 500 /cozycafe/500.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(?:config|includes|database|languages)/ - [F,END,NC]
+    RewriteRule ^cron/(?!cleanup_expired\.php$) - [F,END,NC]
+    RewriteRule ^uploads/payment-proofs(?:/|$) - [F,END,NC]
+</IfModule>
+
+<FilesMatch "(?i)^\.env(?:\..*)?$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "(?i)\.(?:sql|md)$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "(?i)^(?:Dockerfile|docker-compose\.yml|\.dockerignore)$">
+    Require all denied
+</FilesMatch>

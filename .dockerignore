@@ -1,0 +1,15 @@
+.env
+.env.*
+.git
+.gitignore
+.vscode
+*.md
+Dockerfile
+docker-compose.yml
+database/backups/*
+!database/backups/.htaccess
+uploads/*
+!uploads/.htaccess
+!uploads/payment-proofs/
+uploads/payment-proofs/*
+!uploads/payment-proofs/.htaccess
