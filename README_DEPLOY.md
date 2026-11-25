@@ -18,12 +18,12 @@ Compose menyediakan volume bernama `mysql_data`, `uploads_data`, dan `backups_da
 
 ## Deployment production di Dokploy
 
-1. **Buat Project dan database MySQL.** Buat database MySQL 8.0 di Dokploy. Impor `database/cozycafe.sql` ke database tersebut satu kali. Siapkan host internal, nama database, user aplikasi, dan password dari Dokploy; jangan memakai kredensial contoh lokal.
+1. **Buat Project dan database MySQL.** Buat database bernama `cozycafe` pada MySQL 8.0 di Dokploy agar sesuai dengan nama database pada `database/cozycafe.sql`, lalu impor file tersebut satu kali. Siapkan host internal, user aplikasi, dan password dari Dokploy; jangan memakai kredensial contoh lokal.
 2. **Hubungkan repository.** Tambahkan repository Git sebagai Application, pilih build type **Dockerfile**, dan gunakan Dockerfile pada root repository.
 3. **Isi Environment Variables** pada Application:
    - `APP_ENV=production`
    - `APP_URL=https://domain-anda`
-   - `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, dan `DB_PASS` sesuai database Dokploy
+   - `DB_HOST`, `DB_PORT`, `DB_USER`, dan `DB_PASS` sesuai database Dokploy; tetapkan `DB_NAME=cozycafe`
    - `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, dan `SMTP_FROM_NAME` sesuai SMTP yang digunakan
    - `CRON_SECRET` dengan nilai acak sekurang-kurangnya 32 karakter jika endpoint cleanup akan dipanggil melalui HTTP. Cron Dokploy yang menjalankan PHP CLI tidak memerlukan nilai ini.
    - `TZ=Asia/Jakarta`
